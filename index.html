@@ -68,12 +68,14 @@
 
 	<!-- Allow the C++ to access the canvas element --> 
 	<header id="header">
+		<button type="button" id="START">START</button>
 		<button type="button" id="toggleXRbutton">toggleXR</button>
 		<button type="button" id="test">Test</button>
 	</header>
 
 	<script type='text/javascript'>
 		console.log("WebXR testing: AR 0.1");
+		document.querySelector('#START').addEventListener('click', startInit);
 		document.querySelector('#toggleXRbutton').addEventListener('click', toggleXR);
 		document.querySelector('#test').addEventListener('click', testScript0);
 
@@ -107,10 +109,12 @@
 			__Z20PolyVR_triggerScriptPKcPS0_i(wasmStr('test'));
 		}
 
-		setupRequest();
-		onInit();
-		onLoaded();
-		var allocations = [];
+        function startInit() {
+            setupRequest();
+            onInit();
+            onLoaded();
+            var allocations = [];
+        }
 
 	</script>
 </body>
